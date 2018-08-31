@@ -1,6 +1,15 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs-extra');
+const hbs = require('handlebars');
+const path = require('path');
 const data = require('./test-data.json');
+
+const compile = async function(templateName, data) {
+
+    const filePath = await path.join(process.cwd(), 'templates', `${templateName}.hbs`);
+    const html = await fs.readFile(filePath, 'utf-8');
+    return hbs.compile(html)(data);
+};
 
 (async function() {
     try {
@@ -8,7 +17,9 @@ const data = require('./test-data.json');
         const browser = await puppeteer.launch();
         const page = await browser.newPage();
 
-        await page.setContent('<h1> Hi!!! </h1>');
+        const content = await compile('attendee-list', data);
+
+        await page.setContent(content);
         await page.emulateMedia('screen');
         await page.pdf({
             path:'certificate.pdf',

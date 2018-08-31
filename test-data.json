@@ -1,19 +1,15 @@
 {
     "class": {
         "title": "Fundamentals of Floodplain Management",
-        "attendees": [
-            {
-                "first": "Samwise",
-                "last": "Gamgee"
-            },
-            {
-                "first": "Jim",
-                "last": "Henson"
-            },
-            {
-                "first": "Mark",
-                "last": "Lemke"
-            }
-        ]
-    }
+        "date": "Friday, January 1st, 2011"
+    },
+    "attendees": [{
+            "last": "Muller",
+            "first": "Daniel"
+        },
+        {
+            "last": "Robinson",
+            "first": "Jack"
+        }
+    ]
 }
