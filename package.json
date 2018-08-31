@@ -1,0 +1,17 @@
+{
+  "name": "certificate-generator",
+  "version": "1.0.0",
+  "description": "Generate PDF certificates for class completion",
+  "main": "app.js",
+  "dependencies": {
+    "fs-extra": "^7.0.0",
+    "handlebars": "^4.0.11",
+    "puppeteer": "^1.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Muller",
+  "license": "MIT"
+}
