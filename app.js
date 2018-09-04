@@ -9,7 +9,13 @@ const compile = async function(templateName, data) {
     const filePath = await path.join(process.cwd(), 'templates', `${templateName}.hbs`);
     const html = await fs.readFile(filePath, 'utf-8');
     return hbs.compile(html)(data);
+
 };
+
+
+// data.attendees.forEach((dude) => {
+
+// })
 
 (async function() {
     try {
@@ -19,10 +25,12 @@ const compile = async function(templateName, data) {
 
         const content = await compile('attendee-list', data);
 
+        console.log(data.attendees);
+
         await page.setContent(content);
         await page.emulateMedia('screen');
         await page.pdf({
-            path:'certificate.pdf',
+            path: `${data.attendees[0].last}.certificate.pdf`,
             format: 'A4',
             printBackground: true
         });
@@ -30,7 +38,6 @@ const compile = async function(templateName, data) {
         console.log('done!');
         await browser.close();
         process.exit();
-
 
     } catch (e) {
         console.log('error!', e);
