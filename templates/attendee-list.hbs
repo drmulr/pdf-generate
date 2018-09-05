@@ -1,12 +1,12 @@
 <style type="text/css">
 
     body {
-        color: red;
+        color: blue;
     }
 
     .border {
         height: 100%;
-        border: 5px red dashed;
+        border: 5px blue dashed;
     }
 
 </style>
@@ -16,21 +16,17 @@
 
     <div class="border">
 
-        {{#each attendees as |person|}}
-
             <img src="#" alt="">
             <h1>Certificate of Attendance</h1>
             <h3>Awarded to:</h3>
 
-                <h3>{{person.first}} {{person.last}}</h3>
+                <h3>{{attendee.first}} {{attendee.last}}</h3>
 
                 <h3>For successful completion of:</h3>
-                <h3>{{class.title}}</h3>
+                <h3>{{attendee.title}}</h3>
 
                 <h3>on</h3>
-                <h3>{{class.date}}</h3>
-
-        {{/each}}
+                <h3>{{attendee.date}}</h3>
 
     </div>
 
